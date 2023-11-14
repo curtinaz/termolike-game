@@ -13,12 +13,35 @@ h1 {
 input[type="text"] {
     height: 40px;
     width: 40px;
-    border: solid black 3px;
+    border: solid rgb(68, 68, 68) 3px;
     border-radius: 8px;
     text-align: center;
     font-size: 24px;
     font-family: sans-serif;
     text-transform: uppercase;
+}
+
+input[type="text"]:disabled {
+    background-color: rgb(68, 68, 68);
+}
+
+.right {
+    background-color: rgb(137 246 164) !important;
+    border-color: rgb(91 217 122) !important;
+}
+
+.close {
+    background-color: rgb(245 246 137) !important;
+    border-color: rgb(217 189 91) !important;
+}
+
+.wrong {
+    background-color: rgb(246 137 137) !important;
+    border-color: rgb(217 91 91) !important;
+}
+
+#words>div{
+    margin-top: 8px;
 }
 
 #keyboard {
@@ -29,4 +52,15 @@ input[type="text"] {
 #keyboard button {
     padding: 16px;
     font-weight: 800;
+}
+
+.keyboardLines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.keyboardLines>button + button {
+    margin-left: 4px;
 }

@@ -17,15 +17,85 @@
                 <input type="text" maxlength="1" name="word1char4" id="word1char4" oninput="moveToNextInput(this, 'word1char5', 'word1char3')">
                 <input type="text" maxlength="1" name="word1char5" id="word1char5" oninput="moveToNextInput(this, '', 'word1char4')">
             </div>
+            <div id="word2">
+                <input type="text" maxlength="1" name="word2char1" id="word2char1" disabled oninput="moveToNextInput(this, 'word2char2', '')">
+                <input type="text" maxlength="1" name="word2char2" id="word2char2" disabled oninput="moveToNextInput(this, 'word2char3', 'word2char1')">
+                <input type="text" maxlength="1" name="word2char3" id="word2char3" disabled oninput="moveToNextInput(this, 'word2char4', 'word2char2')">
+                <input type="text" maxlength="1" name="word2char4" id="word2char4" disabled oninput="moveToNextInput(this, 'word2char5', 'word2char3')">
+                <input type="text" maxlength="1" name="word2char5" id="word2char5" disabled oninput="moveToNextInput(this, '', 'word2char4')">
+            </div>
+            <div id="word3">
+                <input type="text" maxlength="1" name="word3char1" id="word3char1" disabled oninput="moveToNextInput(this, 'word3char2', '')">
+                <input type="text" maxlength="1" name="word3char2" id="word3char2" disabled oninput="moveToNextInput(this, 'word3char3', 'word3char1')">
+                <input type="text" maxlength="1" name="word3char3" id="word3char3" disabled oninput="moveToNextInput(this, 'word3char4', 'word3char2')">
+                <input type="text" maxlength="1" name="word3char4" id="word3char4" disabled oninput="moveToNextInput(this, 'word3char5', 'word3char3')">
+                <input type="text" maxlength="1" name="word3char5" id="word3char5" disabled oninput="moveToNextInput(this, '', 'word3char4')">
+            </div>
+            <div id="word4">
+                <input type="text" maxlength="1" name="word4char1" id="word4char1" disabled oninput="moveToNextInput(this, 'word4char2', '')">
+                <input type="text" maxlength="1" name="word4char2" id="word4char2" disabled oninput="moveToNextInput(this, 'word4char3', 'word4char1')">
+                <input type="text" maxlength="1" name="word4char3" id="word4char3" disabled oninput="moveToNextInput(this, 'word4char4', 'word4char2')">
+                <input type="text" maxlength="1" name="word4char4" id="word4char4" disabled oninput="moveToNextInput(this, 'word4char5', 'word4char3')">
+                <input type="text" maxlength="1" name="word4char5" id="word4char5" disabled oninput="moveToNextInput(this, '', 'word4char4')">
+            </div>
+            <div id="word5">
+                <input type="text" maxlength="1" name="word5char1" id="word5char1" disabled oninput="moveToNextInput(this, 'word5char2', '')">
+                <input type="text" maxlength="1" name="word5char2" id="word5char2" disabled oninput="moveToNextInput(this, 'word5char3', 'word5char1')">
+                <input type="text" maxlength="1" name="word5char3" id="word5char3" disabled oninput="moveToNextInput(this, 'word5char4', 'word5char2')">
+                <input type="text" maxlength="1" name="word5char4" id="word5char4" disabled oninput="moveToNextInput(this, 'word5char5', 'word5char3')">
+                <input type="text" maxlength="1" name="word5char5" id="word5char5" disabled oninput="moveToNextInput(this, '', 'word5char4')">
+            </div>
+            <div id="word6">
+                <input type="text" maxlength="1" name="word6char1" id="word6char1" disabled oninput="moveToNextInput(this, 'word6char2', '')">
+                <input type="text" maxlength="1" name="word6char2" id="word6char2" disabled oninput="moveToNextInput(this, 'word6char3', 'word6char1')">
+                <input type="text" maxlength="1" name="word6char3" id="word6char3" disabled oninput="moveToNextInput(this, 'word6char4', 'word6char2')">
+                <input type="text" maxlength="1" name="word6char4" id="word6char4" disabled oninput="moveToNextInput(this, 'word6char5', 'word6char3')">
+                <input type="text" maxlength="1" name="word6char5" id="word6char5" disabled oninput="moveToNextInput(this, '', 'word6char4')">
+            </div>
         </section>
     </section>
     <div id="keyboard">
-        <button id="enter">ENTER</button>
+        <div class="keyboardLines" id="firstLine">
+            <button id="Q">Q</button>
+            <button id="W">W</button>
+            <button id="E">E</button>
+            <button id="R">R</button>
+            <button id="T">T</button>
+            <button id="Y">Y</button>
+            <button id="U">U</button>
+            <button id="I">I</button>
+            <button id="O">O</button>
+            <button id="P">P</button>
+        </div>
+        <div class="keyboardLines" id="secondLine">
+            <button id="A">A</button>
+            <button id="S">S</button>
+            <button id="D">D</button>
+            <button id="F">F</button>
+            <button id="G">G</button>
+            <button id="H">H</button>
+            <button id="J">J</button>
+            <button id="K">K</button>
+            <button id="L">L</button>
+        </div>
+        <div class="keyboardLines" id="thirdLine">
+            <button id="Z">Z</button>
+            <button id="X">X</button>
+            <button id="C">C</button>
+            <button id="V">V</button>
+            <button id="B">B</button>
+            <button id="N">N</button>
+            <button id="M">M</button>
+            <button id="enter">ENTER</button>
+        </div>
     </div>
 </body>
 
 <script>
+
     function moveToNextInput(currentInput, nextInputId, previousInputId) {
+
+
         if (currentInput.value.length === 1 && nextInputId != "") {
             document.getElementById(nextInputId).focus();
         } else if (currentInput.value.length === 0 && previousInputId != "") {
@@ -33,14 +103,53 @@
         }
     }
 
-    var secretWord = "LAURA";
+    var secretWord = "LENTO";
     var currentWord = 1;
 
     $("#enter").click(() => {
         userWord = $(`#word${currentWord}char1`).val() + $(`#word${currentWord}char2`).val() + $(`#word${currentWord}char3`).val() + $(`#word${currentWord}char4`).val() + $(`#word${currentWord}char5`).val();
 
-        console.log(userWord);
+        for(var i = 0; i <= 4; i++) {
+            let element = $(`#word${currentWord}char${i+1}`);
+
+            if(element.val().toLowerCase() == secretWord[i].toLowerCase()) {
+                element.addClass('right');
+                element.prop('disabled', true);
+
+                // Pinta a letra do Keyboard de verde
+                $(`#${element.val().toUpperCase()}`).removeClass("wrong");
+                $(`#${element.val().toUpperCase()}`).removeClass("close");
+                $(`#${element.val().toUpperCase()}`).addClass("right");
+                
+            } else if(secretWord.toLowerCase().indexOf(element.val().toLowerCase()) != -1) {
+                element.addClass('close');
+                element.prop('disabled', true);
+
+                if(!$(`#${element.val().toUpperCase()}`).hasClass("right")) {
+                    $(`#${element.val().toUpperCase()}`).addClass("right");
+                }
+
+            } else {
+                console.log(secretWord.toLowerCase().indexOf(element.val().toLowerCase()));
+                element.addClass('wrong');
+                element.prop('disabled', true);
+            }
+        };
+
+        currentWord += 1;
+
+        if(currentWord < 7) {
+            for(var i = 0; i <= 4; i++) {
+                let element = $(`#word${currentWord}char${i+1}`);
+                element.prop('disabled', false);
+                console.log(`#word${currentWord}char${i+1}`)
+            }
+        }
     });
+
+    function getLetters(wordNumber) {
+        
+    }
     
 </script>
 
