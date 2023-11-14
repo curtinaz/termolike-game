@@ -3,6 +3,7 @@ body {
     justify-content: center;
     background-color: #BCD6FE;
     height: 95vh;
+    user-select: none;
 }
 
 h1 {
