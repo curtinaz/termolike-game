@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<body>
+    <section>
+        <h1>ATANRA</h1>
+        <section id="words">
+            <div id="word1">
+                <input type="text" maxlength="1" name="word1char1" id="word1char1" oninput="moveToNextInput(this, 'word1char2', '')">
+                <input type="text" maxlength="1" name="word1char2" id="word1char2" oninput="moveToNextInput(this, 'word1char3', 'word1char1')">
+                <input type="text" maxlength="1" name="word1char3" id="word1char3" oninput="moveToNextInput(this, 'word1char4', 'word1char2')">
+                <input type="text" maxlength="1" name="word1char4" id="word1char4" oninput="moveToNextInput(this, 'word1char5', 'word1char3')">
+                <input type="text" maxlength="1" name="word1char5" id="word1char5" oninput="moveToNextInput(this, '', 'word1char4')">
+            </div>
+        </section>
+    </section>
+    <div id="keyboard">
+        <button id="enter">ENTER</button>
+    </div>
+</body>
+
+<script>
+    function moveToNextInput(currentInput, nextInputId, previousInputId) {
+        if (currentInput.value.length === 1 && nextInputId != "") {
+            document.getElementById(nextInputId).focus();
+        } else if (currentInput.value.length === 0 && previousInputId != "") {
+            document.getElementById(previousInputId).focus();
+        }
+    }
+
+    var secretWord = "LAURA";
+    var currentWord = 1;
+
+    $("#enter").click(() => {
+        userWord = $(`#word${currentWord}char1`).val() + $(`#word${currentWord}char2`).val() + $(`#word${currentWord}char3`).val() + $(`#word${currentWord}char4`).val() + $(`#word${currentWord}char5`).val();
+
+        console.log(userWord);
+    });
+    
+</script>
+
+</html>

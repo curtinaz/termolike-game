@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #BCD6FE;
+    height: 95vh;
+}
+
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+input[type="text"] {
+    height: 40px;
+    width: 40px;
+    border: solid black 3px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 24px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+#keyboard {
+    position: absolute;
+    bottom: 5vh;
+}
+
+#keyboard button {
+    padding: 16px;
+    font-weight: 800;
+}
