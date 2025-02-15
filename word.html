@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha sua Palavra</title>
+    <style>
+        /* Resetando margens e padding para um estilo mais controlado */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 18px;
+            width: 80%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            background-color: #388E3C;
+        }
+
+        p {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolha sua Palavra</h1>
+    <input type="text" id="wordInput" maxlength="8" placeholder="Digite uma palavra">
+    <button onclick="startGame()">Jogar</button>
+    <p id="error"></p>
+
+    <script>
+        function startGame() {
+            let word = document.getElementById("wordInput").value.toLowerCase();
+            if (!word.match(/^[a-z]{1,8}$/)) {
+                document.getElementById("error").textContent = "Digite uma palavra válida de até 8 letras!";
+                return;
+            }
+            
+            fetch(`https://api.dicionario-aberto.net/word/${word}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.length) {
+                        document.getElementById("error").textContent = "Palavra não encontrada no dicionário!";
+                        return;
+                    }
+                    window.location.href = `index.html?word=${btoa(word)}`;
+                })
+                .catch(() => {
+                    document.getElementById("error").textContent = "Erro ao verificar palavra!";
+                });
+        }
+    </script>
+</body>
+</html>

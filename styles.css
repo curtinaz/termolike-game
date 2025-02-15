@@ -1,67 +1,150 @@
 body {
-    display: flex;
-    justify-content: center;
-    background-color: #BCD6FE;
-    height: 95vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #6e5c62;
+    color: white;
     user-select: none;
 }
 
-h1 {
-    text-align: center;
-    font-family: sans-serif;
+/* Animação de vibração */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
 
-input[type="text"] {
-    height: 40px;
-    width: 40px;
-    border: solid rgb(68, 68, 68) 3px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 24px;
-    font-family: sans-serif;
-    text-transform: uppercase;
+.shake {
+    animation: shake 0.5s ease-in-out;
 }
 
-input[type="text"]:disabled {
-    background-color: rgb(68, 68, 68);
+/* Estilo do toaster */
+.toaster {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.right {
-    background-color: rgb(137 246 164) !important;
-    border-color: rgb(91 217 122) !important;
+.toaster.show {
+    opacity: 1;
 }
 
-.close {
-    background-color: rgb(245 246 137) !important;
-    border-color: rgb(217 189 91) !important;
+#board {
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.wrong {
-    background-color: rgb(246 137 137) !important;
-    border-color: rgb(217 91 91) !important;
-}
-
-#words>div{
-    margin-top: 8px;
-}
-
-#keyboard {
-    position: absolute;
-    bottom: 5vh;
-}
-
-#keyboard button {
-    padding: 16px;
-    font-weight: 800;
-}
-
-.keyboardLines {
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 0.125em solid #4C4347;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #615458;
 }
 
-.keyboardLines>button + button {
-    margin-left: 4px;
+.cell.active {
+    border-bottom: 0.25em solid #4C4347 !important;
+}
+
+.correct {
+    background-color: #3aa394 !important;
+}
+
+.present {
+    background-color: #d3ad69 !important;
+}
+
+.absent {
+    background-color: #312a2c !important;
+    color: #504a4b;
+}
+
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.key {
+    width: 40px;
+    height: 50px;
+    margin: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #818384;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.key.large {
+    width: 80px;
+}
+
+/* Animação de confetes */
+@keyframes confetti {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(500px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    animation: confetti 2s ease-in-out infinite;
+}
+
+.confetti:nth-child(even) {
+    background-color: #FF6347;
+}
+
+.confetti:nth-child(odd) {
+    background-color: #32CD32;
+}
+
+.key.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.cell.disabled {
+    cursor: not-allowed;
+    background-color: #dcdcdc;
 }
