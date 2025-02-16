@@ -129,16 +129,16 @@ function checkWord() {
     if (guess.length === wordLength) {
         console.log("Palavra enviada: ", guess);
 
-        // Verificando se a palavra existe usando a API do Dicionário Aberto
-        fetch(`https://api.dicionario-aberto.net/word/${guess.toLowerCase()}`)
+        // Verificando se a palavra existe usando a API Papalavras
+        fetch(`https://papalavras-server.herokuapp.com/words/verify/${guess}`)
             .then(response => response.json())
             .then(data => {
-                if (!data.length) {
+                if (!data.word) {
                     showToaster("Palavra inexistente!");
                     return;
                 }
 
-                // Resetando o status das células antes de adicionar novos highlights
+                // Resetando o status das células antes de adicionar novos destaques
                 resetCellHighlights(cells, window.currentAttempt);
 
                 let letterCount = {};
@@ -169,7 +169,7 @@ function checkWord() {
                 // Exibindo confetes se acertar a palavra
                 if (guess === window.word) {
                     showConfetti(); // Mostrar confetes após acertar a palavra
-                    showToaster("Você acertou a palavra!")
+                    showToaster("Você acertou a palavra!");
                 }
 
                 window.currentAttempt++;
